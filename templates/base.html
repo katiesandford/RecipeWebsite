@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+	<title>Recipes</title>
+</head>
+<body>
+	{% block menu %}
+	<div id="menu">
+		<h1>Recipes</h1>
+		<ul> 
+			<li id="all-recipes"> <a href="/all">All Recipes</a> </li>
+		    <li id="add-recipe"> <a href="/add">Share Recipe</a> </li> 
+	</div>
+	{% endblock  %}
+	<div id="content">
+		{% block content %}
+		{% endblock  %}
+	</div>
+	<div id="footer">
+		{% block footer %}
+		{% endblock  %}
+	</div>
+</body>

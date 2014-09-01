@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from Recipe.views import RecipeDetail, RecipeCreate, RecipeList
+from Recipe.views import RecipeDetail, RecipeCreate, RecipeList, custom_404_view
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^recipe/(?P<pk>\d+)', RecipeDetail.as_view())
 )
 
-handler404 = 'Recipe.views.freindlyerrorview'
+#Include custom error handlers here. A 404 hander was set up as an example. 
+handler404 = custom_404_view

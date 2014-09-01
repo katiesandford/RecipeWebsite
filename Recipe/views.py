@@ -4,7 +4,6 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.http.response import HttpResponse, HttpResponseRedirect
 from Recipe.forms import RecipeForm, IngredientFormSet, RecipeStepFormSet
-from django.db import transaction
 
 class RecipeList(ListView):
     model = Recipe      
@@ -15,10 +14,6 @@ class RecipeDetail(DetailView):
 class RecipeCreate(CreateView):
     model = Recipe
     form_class = RecipeForm
-    
-    """
-    View to create a new recipe instance 
-    """
     
     def get(self, request, *args, **kwargs):
         self.object=None
@@ -70,6 +65,9 @@ class RecipeCreate(CreateView):
                                   ingredient_form=ingredient_form,
                                   recipe_step_form=recipe_step_form))
     
-def freindlyerrorview(request):
+def custom_404_view(request):
+    """
+    Handles simple 404 errors
+    """
     html = "<html><body>FriendlyError</body></html>" 
     return HttpResponse(html)
